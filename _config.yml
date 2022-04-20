@@ -7,6 +7,8 @@ kramdown:
 
 url: https://shivrm.github.io
 permalink: /blog/:title
+page_excerpts: true
+excerpt_seperator: <!--more-->
 
 collections:
   blog:

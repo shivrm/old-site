@@ -6,6 +6,7 @@ title: Hi, I'm Shivram
 Welcome to my website! I'm an amateur programmer who makes tiny projects. I mostly work with JavaScript and Python.
 
 Right now, I'm working on a variety of side projects, such as a math expression parser, and a compiled programming language.
+<!--more-->
 
 I love open-source software, and simple, accessible websites. I also like to rant about things on my [blog]({{site.url}}/blog).
 
