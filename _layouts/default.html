@@ -7,20 +7,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     {% if page.title %}
-        <meta content="{{ page.title }}" property="og:title">
-        <meta content="{{ page.url|remove:'index.html' }}" property="og:url">
+        <meta property="og:title" content="{{ page.title }}" property="og:title">
+        <meta name="og:url" content="{{ page.url|remove:'index.html' }}">
     {% endif %}
-    <meta content="{{ page.content | split:'<!--more-->' | first }}" property="og:description">
-    <meta content="{{ page.content | split:'<!--more-->' | first }}" property="description">
+    <meta proprerty="og:description" content="{{ page.content | split:'<!--more-->' | first }}">
+    <meta name="description" content="{{ page.content | split:'<!--more-->' | first }}">
 
     <link rel="stylesheet" href="{{site.url}}/assets/style.css">
-    <link rel="stylesheet" href="{{site.url}}/assets/code.css">
-
+    
     <title>
         {% if page.title %}
-            Shivram S - {{ page.title }}
+        Shivram S - {{ page.title }}
         {% else %}
-            Shivram S
+        Shivram S
         {% endif %}
     </title>
 </head>
@@ -40,9 +39,9 @@
                 {{ page.title }}
             </h1>
             {% endif %}
-
+            
             {% if page.date %}
-                {{page.date | date: "%d %B, %Y"}}
+            {{page.date | date: "%d %B, %Y"}}
             {% endif %}
         </div>
         <hr>
@@ -53,7 +52,7 @@
     <main>    
         {{ content }}
     </main>
-
+    
     <footer>
         <ul id="socials">
             <li><a href="https://github.com/shivrm">GitHub</a></li>
@@ -66,6 +65,7 @@
     </footer>
 
 </body>
+<link rel="stylesheet" href="{{site.url}}/assets/code.css">
 <script>
     document.getElementById('switch-theme').hidden = false;
     let darkTheme = window.matchMedia('(prefers-color-scheme: dark)').matches;
