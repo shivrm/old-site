@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="http://localhost:4000/assets/style.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/code.css">
+
+    <title>
+        
+            Shivram S - Shivram's Blog
+        
+    </title>
+</head>
+
+<body>
+
+    <header>
+        <div id="header">
+            <a href="http://localhost:4000"><img src="http://localhost:4000/assets/shivram.svg" alt="Shivram S" id="logo"></a>
+            <button id="switch-theme" onclick="switchTheme()">Switch Theme</button>
+        </div>
+
+        
+        <div id="metadata">
+            
+            <h1 id="title">
+                Shivram's Blog
+            </h1>
+            
+
+            
+                19 April, 2022
+            
+        </div>
+        <hr>
+        
+    </header>
+
+    
+    <main>    
+        <p>Welcome to my blog, where I rant about things, and give opinions.</p>
+
+<h1 id="meme">Meme</h1>
+<p>Meme</p>
+
+
+    </main>
+
+    <footer>
+        <ul id="socials">
+            <li><a href="https://github.com/shivrm">GitHub</a></li>
+            <li><a href="https://discord.com/users/778815059865632799">Discord</a></li>
+            <li><a href="http://localhost:4000/blog">Blog</a></li>
+        </ul>
+        <p id="copyright">
+            © Shivram S 2022
+        </p>
+    </footer>
+
+</body>
+<script>
+    document.getElementById('switch-theme').hidden = false;
+    let darkTheme = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    document.body.classList.add(darkTheme ? "dark" : "light");
+    
+    function switchTheme() {
+        document.body.classList.toggle("light");
+        document.body.classList.toggle("dark");
+    }
+</script>
+
+</html>

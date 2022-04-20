@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="http://localhost:4000/assets/style.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/code.css">
+
+    <title>
+        
+            Shivram S
+        
+    </title>
+</head>
+
+<body>
+
+    <header>
+        <div id="header">
+            <a href="http://localhost:4000"><img src="http://localhost:4000/assets/shivram.svg" alt="Shivram S" id="logo"></a>
+            <button id="switch-theme" onclick="switchTheme()">Switch Theme</button>
+        </div>
+
+        
+    </header>
+
+    
+    <main>    
+        <h1 id="hi-im-shivram">Hi, I’m Shivram</h1>
+
+<p>Welcome to my website! I’m an amateur programmer who makes tiny projects. I mostly work with JavaScript and Python.</p>
+
+<p>Right now, I’m working on a variety of side projects, such as a math expression parser, and a compiled programming language.</p>
+
+<p>I love open-source software, and simple, accessible websites. I also like to rant about things on my <a href="http://localhost:4000/blog">blog</a>.</p>
+
+<h1 id="projects">Projects</h1>
+
+<p>A small gallery of projects by me. Want to see more? Visit my <a href="https://github.com/shivrm">GitHub page</a>.</p>
+
+<ul>
+  <li>
+    <h2 id="twine"><a href="https://shivrm.github.io/twine">twine</a></h2>
+    <p><strong>twine</strong> is a data-serialization format that stores your data in a binary form. It takes up half as much space as JSON.</p>
+  </li>
+  <li>
+    <h2 id="chip8"><a href="https://github.com/shivrm/chip8">chip8</a></h2>
+    <p><strong>chip8</strong> is a virtual machine that interprets the CHIP-8 programming language.</p>
+  </li>
+  <li>
+    <h2 id="notes"><a href="https://shivrm.github.io/notes">notes</a></h2>
+    <p><strong>notes</strong> is a web app that lets you create sticky notes in a variety of colors and fonts. It’s one of the first projects I ever made.</p>
+  </li>
+</ul>
+
+<h1 id="technologies">Technologies</h1>
+
+<ul>
+  <li>Python and JavaScript</li>
+  <li>HTML, CSS and Sass</li>
+  <li>SQL, Svelte and Flask</li>
+  <li>Learning Rust and FastAPI</li>
+</ul>
+
+    </main>
+
+    <footer>
+        <ul id="socials">
+            <li><a href="https://github.com/shivrm">GitHub</a></li>
+            <li><a href="https://discord.com/users/778815059865632799">Discord</a></li>
+            <li><a href="http://localhost:4000/blog">Blog</a></li>
+        </ul>
+        <p id="copyright">
+            © Shivram S 2022
+        </p>
+    </footer>
+
+</body>
+<script>
+    document.getElementById('switch-theme').hidden = false;
+    let darkTheme = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    document.body.classList.add(darkTheme ? "dark" : "light");
+    
+    function switchTheme() {
+        document.body.classList.toggle("light");
+        document.body.classList.toggle("dark");
+    }
+</script>
+
+</html>
