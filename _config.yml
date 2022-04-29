@@ -5,7 +5,7 @@ kramdown:
   input: GFM
   syntax_highlighter: rouge
 
-url: https://shivrm.github.io
+url: https://shivram.ml
 permalink: /blog/:title
 page_excerpts: true
 excerpt_seperator: <!--more-->
