@@ -24,7 +24,7 @@ A small gallery of projects by me. Want to see more? Visit my [GitHub page](http
 * ## [notes]({{site.url}}/notes)
     **notes** is a web app that lets you create sticky notes in a variety of colors and fonts. It's one of the first projects I ever made.
     
-* ## [mathrs](https://github.com/shivrm/maths)
+* ## [mathrs](https://github.com/shivrm/mathrs)
     **mathrs** is a simple math expression parser written in Rust. It supports all basic operators, and even
     has operator precedence!
 

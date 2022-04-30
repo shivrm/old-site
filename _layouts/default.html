@@ -13,6 +13,7 @@
     <meta proprerty="og:description" content="{{ page.content | split:'<!--more-->' | first }}">
     <meta name="description" content="{{ page.content | split:'<!--more-->' | first }}">
 
+    <link rel="icon" type="image/svg+xml" href="{{site.url}}/assets/favicon.svg">
     <link rel="stylesheet" href="{{site.url}}/assets/style.css">
     
     <title>
@@ -65,7 +66,6 @@
     </footer>
 
 </body>
-<link rel="stylesheet" href="{{site.url}}/assets/code.css">
 <script>
     document.getElementById('switch-theme').hidden = false;
     let darkTheme = window.matchMedia('(prefers-color-scheme: dark)').matches;
