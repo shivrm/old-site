@@ -38,6 +38,9 @@ blockquote {
     background-color: #64646410;
 }
 
+h2 {font-size: 2.4em;}
+h3 {font-size: 1.5em; margin-bottom: 0;}
+
 #switch-theme {
     background-color: inherit;
     color: inherit;
