@@ -9,7 +9,8 @@ Welcome to my blog, where I rant about things, and give opinions.
 
 {% for article in site.blog %}
 {% if article != page %}
-## {{ article.title }}
-{{ article.content | markdownify }}
+## [{{ article.title }}]({{site.url}}{{article.url}})
+{{ article.content | split:'<!--more-->' | first | markdownify }}
+---
 {% endif %}
 {% endfor %}
