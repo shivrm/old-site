@@ -9,17 +9,15 @@ my own programming language - a simple Lisp. I'll be implementing it in Rust, bu
 free to follow along in whatever language you like.
 <!--more-->
 
-I've you haven't already read Ruslan Spivak's blog post series on building an interpeter,
-I highly suggest you read it [here](https://ruslanspivak.com/lsbasi-part1/ "Ruslan Spivak - Let's Build a Simple Interpreter, Part 1")
+I've you haven't already read [Ruslan Spivak's blog post series on building an interpeter](https://ruslanspivak.com/lsbasi-part1/ "Ruslan Spivak - Let's Build a Simple Interpreter, Part 1"), I highly suggest that you do. I'll be using his lexer and parser models in this tutorial.
 
-(I'm still pretty new to Rust, so my code might not be as good as a veteran Rustacean's.)
-## What is a Lisp, and Why should I write one?
+# What is a Lisp, and Why should I write one?
 
 Lisp is a very old family of Programming Languages; As of the time of writing, it is 64 years old; that's 14 years older than C! It's responsible for pioneering many features which we see today, such as dynamic typing, first-class functions, and even recursion and conditionals.
 
 In addition to this, Lisps have a very simple grammar, that can be parsed easily. You can express it's grammar in [BNF notation](Ahttps://en.wikipedia.org/wiki/Backus–Naur_form) like so:
 
-```bnf
+```
 ; an expression can be either an atom (a fundamental type) or a list
 expr ::= atom | list
 
@@ -30,9 +28,9 @@ atom ::= number | name | string
 list ::= '(' expr* ')'
 ```
 
-## Writing the Lexer
+# Writing the Lexer
 
-### The Tokens
+## The Tokens
 
 The lexer is the first part of our interpreter. It splits a string into "tokens", each of which has an assigned meaning. For now, our Lisp will have five token types:
  - `Number`: A positive integer made from consecutive digits
@@ -41,7 +39,7 @@ The lexer is the first part of our interpreter. It splits a string into "tokens"
  - `EOF`: Used to indicate that no more characters can be read from the input
 
 I'll be implementing this as a Rust `enum`:
-```rust
+```
 pub enum Token {
 	Number(i32),
 	Name(String),
@@ -51,11 +49,11 @@ pub enum Token {
 }
 ```
 
-### Designing the Lexer
+## Designing the Lexer
 
 Now that we have our tokens, we need a way to split a string and generate this Tokens. I'll use a `struct` called `Lexer` that does this. I'll also implement a `new` method that takes a string as an argument and returns a `Lexer`.
 
-```rust
+```
 use std::str::Chars;
 
 pub struct Lexer<'a> {
@@ -73,7 +71,7 @@ impl<'a> Lexer<'a> {
 
 I'll also throw in a few methods to get the current character, and to advance to the next character.
 
-```rust
+```
 // Inside the impl<'a> Lexer<'a>
 
 #[inline]
@@ -87,7 +85,7 @@ fn advance(&mut self) -> Option<char> {
 }
 ```
 
-### Getting the next token
+## Getting the next token
 
 Even though we have the basic structure, we still need a way to get the next token from our lexer. Let's implement a `next_token` method that:
  - Skips the current char if it's whitespace
@@ -96,7 +94,7 @@ Even though we have the basic structure, we still need a way to get the next tok
  - Handles opening and closing parentheses
  - Throws an error if any other token is encountered
 
-```rust
+```
 // Inside the impl<'a> Lexer<'a>
 
 pub fn next_token(&mut self) -> Token {
@@ -129,11 +127,11 @@ pub fn next_token(&mut self) -> Token {
 }
 ```
 
-### Explanation
+## Explanation
 
 Some of this might be a bit confusing if you're unfamiliar with Rust. I'll try explaining a bit:
 
-```rust
+```
 if let Some(c) = self.current_char() {
     ...
 }
@@ -143,18 +141,18 @@ if let Some(c) = self.current_char() {
 
 Here we are checking if it returns a value of the form `Some(c)`. We only check for the various token types if a character exists. Otherwise we return the `EOF` token.
 
-```rust
+```
 else {
 	Token::EOF
 }
 ```
 The code also contains some statements without a terminating semicolon. Rust returns the value of these statements implicitly.
 
-### Reading Numbers and Names
+## Reading Numbers and Names
 
 You might have noticed that I've used two undefined methods, `read_number` and `read_name` inside the `next_token` method. These are used to read a number and a name respectively from the input.
 
-```rust
+```
 // Inside the impl<'a> Lexer<'a>
 
 fn read_number(&mut self) -> i32 {
@@ -185,10 +183,10 @@ We use `while let` pattern-matching here to loop while the character matches a c
 
 The `parse` method is also used on `num_as_string` to convert it into a 32-bit signed integer (`i32`)
 
-### Testing the Lexer
+## Testing the Lexer
 
 With that, our lexer is complete. Now it's time to test it. Here's some driver code I wrote to test it:
-```rust
+```
 fn main() {
 	let mut l = Lexer::new("(println 1 2)");
 	
@@ -199,7 +197,7 @@ fn main() {
 ```
 
 If you're following along in Rust, you'll need to derive the `Debug` trait for the Token enum like so:
-```rust
+```
 #[derive(Debug)]
 enum Token {
 	...
@@ -207,7 +205,7 @@ enum Token {
 ```
 
 And then, on compiling and running the program, you should see
-```rust
+```
 OpenParen
 Name("println")
 Number(1)

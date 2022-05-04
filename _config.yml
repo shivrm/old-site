@@ -1,9 +1,9 @@
 markdown: kramdown
-highlighter: rouge
+highlighter: none
 
 kramdown:
   input: GFM
-  syntax_highlighter: rouge
+  syntax_highlighter: none
 
 url: https://shivram.ml
 permalink: /blog/:title

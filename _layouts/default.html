@@ -7,16 +7,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     {% if page.title %}
-        <meta property="og:title" content="{{ page.title }}" property="og:title">
-        <meta name="og:url" content="{{ page.url|remove:'index.html' }}">
+    <meta property="og:title" content="{{ page.title }}" property="og:title">
+    <meta name="og:url" content="{{ page.url|remove:'index.html' }}">
     {% endif %}
 
-    <meta proprerty="og:description" content="{{ page.content | split:'<!--more-->' | first }}">
-    <meta name="description" content="{{ page.content | split:'<!--more-->' | first }}">
+    <meta proprerty="og:description" content="{{ page.content | split:'<!--more-->' | first | strip_html }}">
+    <meta name="description" content="{{ page.content | split:'<!--more-->' | first | strip_html }}">
 
     <link rel="icon" type="image/svg+xml" href="{{site.url}}/assets/favicon.svg">
     <link rel="stylesheet" href="{{site.url}}/assets/style.css">
-    
+
     <title>
         {% if page.title %}
         Shivram S - {{ page.title }}
@@ -29,11 +29,12 @@
 <body>
 
     <header>
-        <div id="header">
-            <a href="{{site.url}}"><img src="{{site.url}}/assets/shivram.svg" alt="Shivram S" id="logo"></a>
-            <button id="switch-theme" onclick="switchTheme()" hidden>Switch Theme</button>
-        </div>
+        <a href="{{site.url}}"><img src="{{site.url}}/assets/shivram.svg" alt="Shivram S" id="logo"></a>
+        <button id="switch-theme" onclick="switchTheme()" hidden>Switch Theme</button>
+    </header>
 
+
+    <main>
         {% if page.title or page.metadata %}
         <div id="metadata">
             {% if page.title %}
@@ -41,20 +42,17 @@
                 {{ page.title }}
             </h1>
             {% endif %}
-            
+
             {% if page.date %}
             {{page.date | date: "%d %B, %Y"}}
             {% endif %}
         </div>
         <hr>
         {% endif %}
-    </header>
 
-    
-    <main>    
         {{ content }}
     </main>
-    
+
     <footer>
         <ul id="socials">
             <li><a href="https://github.com/shivrm">GitHub</a></li>
@@ -62,8 +60,7 @@
             <li><a href="{{site.url}}/blog">Blog</a></li>
         </ul>
         <p id="copyright">
-            &copy; Shivram S 2022
-        </p>
+            &copy; 2022 Shivram S</p>
     </footer>
 
 </body>
@@ -71,8 +68,6 @@
     document.getElementById('switch-theme').hidden = false;
     let darkTheme = window.matchMedia('(prefers-color-scheme: dark)').matches;
     document.body.classList.add(darkTheme ? "dark" : "light");
-    
-    console.log("%c I was expecting you :)", "font-family: serif; font-size: 3em");
 
     function switchTheme() {
         document.body.classList.toggle("light");
