@@ -36,6 +36,16 @@ h3 {
     line-height: 1.2
 }
 
+.hlink {
+    width: max-content;
+}
+
+.hlink:hover {
+    cursor: pointer;
+    content: " §";
+    text-decoration: underline
+}
+
 a,
 a:visited,
 a:hover,

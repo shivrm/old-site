@@ -74,6 +74,16 @@
         document.body.classList.toggle("light");
         document.body.classList.toggle("dark");
     }
+
+    document.querySelectorAll("h1,h2,h3,h4,h5,h6").forEach(e => {
+        // Fix for already existing links
+        if (e.innerHTML.includes('<a')) return;
+        e.classList.add('hlink');
+
+        e.addEventListener('click', () => {
+            window.location.href = '#' + e.getAttribute("id");
+        });
+    });
 </script>
 
 </html>
