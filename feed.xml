@@ -1,9 +1,11 @@
+---
+layout: null
+---
 <?xml version="1.0" encoding="utf-8"?>
-
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-	<title>Example Feed</title>
-	<subtitle>A subtitle.</subtitle>
+	<title>Shivram's Blog</title>
+	<subtitle>I post stuff here</subtitle>
 	<link href="http://example.org/feed/" rel="self" />
 	<link href="http://example.org/" />
 	<id>urn:uuid:60a76c80-d399-11d9-b91C-0003939e0af6</id>
@@ -17,11 +19,11 @@
 		<link href="{{ site.url }}{{ article.url }}" />
 		<link rel="alternate" type="text/html" href="{{ site.url }}{{ article.url }}.html"/>
 		<id>{{ article.id }}</id>
-        <published>{{ page.date }}</published>
-		<summary>{{ page.content | split:'<!--more-->' | first | strip_html }}</summary>
+        <published>{{ article.date }}</published>
+		<summary>Summary</summary>
 		<content type="xhtml">
 			<div xmlns="http://www.w3.org/1999/xhtml">
-                {{ page.content }}
+                {{ article.content }}
 			</div>
 		</content>
 		<author>
