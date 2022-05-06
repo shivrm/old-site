@@ -42,8 +42,13 @@ h3 {
 
 .hlink:hover {
     cursor: pointer;
-    content: " §";
-    text-decoration: underline
+}
+
+.hlink:hover:before {
+    position: relative;
+    left: -1.5ch;
+    margin-right: -1.5ch;
+    content: "§ "
 }
 
 a,

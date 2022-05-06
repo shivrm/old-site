@@ -55,6 +55,13 @@
     </main>
 
     <footer>
+        {% if page.previous %}
+        <p><a href="{{ site.url }}{{ page.previous.url }}">Previous: {{ page.previous.title }}</a></p>
+        {% endif %}
+        {% if page.next %}
+        <p><a href="{{ site.url }}{{ page.next.url }}">Next: {{ page.next.title }}</a></p>
+        {% endif %}
+
         <ul id="socials">
             <li><a href="https://github.com/shivrm">GitHub</a></li>
             <li><a href="https://discord.com/users/778815059865632799">Discord</a></li>
