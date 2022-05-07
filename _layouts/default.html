@@ -20,7 +20,7 @@
 
     <title>
         {% if page.title %}
-        Shivram S - {{ page.title }}
+        {{ page.title }} | Shivram S
         {% else %}
         Shivram S
         {% endif %}
@@ -46,6 +46,9 @@
 
             {% if page.date %}
             {{page.date | date: "%d %B, %Y"}}
+            {% endif %}
+            {% if page.updated %}
+            , Updated on {{page.updated | date: "%d %B, %Y"}}
             {% endif %}
         </div>
         <hr>

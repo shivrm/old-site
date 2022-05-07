@@ -20,6 +20,9 @@ layout: null
 		<link rel="alternate" type="text/html" href="{{ site.url }}{{ article.url }}.html"/>
 		<id>{{ article.id }}</id>
         <published>{{ article.date }}</published>
+		{% if article.updated %}
+		<updated>{{ article.updated }}</updated>
+		{% endif %}
 		<summary>Summary</summary>
 		<content type="xhtml">
 			<div xmlns="http://www.w3.org/1999/xhtml">
