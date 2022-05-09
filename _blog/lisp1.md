@@ -5,9 +5,9 @@ date: 2022-05-03
 updated: 2022-05-07
 ---
 I've decided to learn more about how compilers work. I'm starting by trying to create
-my own programming language - a simple Lisp. I'll be implementing it in Rust, but feel
+my own programming language - a simple Lisp.<!--more--> I'll be implementing it in Rust, but feel
 free to follow along in whatever language you like.
-<!--more-->
+
 
 I've you haven't already read [Ruslan Spivak's blog post series on building an interpeter](https://ruslanspivak.com/lsbasi-part1/  "Ruslan Spivak - Let's Build a Simple Interpreter, Part 1"), I highly suggest that you do. I'll be using his lexer and parser models in this tutorial.
 

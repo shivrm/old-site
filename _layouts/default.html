@@ -6,9 +6,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    <meta property="og:type" content="website">
     {% if page.title %}
     <meta property="og:title" content="{{ page.title }}" property="og:title">
-    <meta name="og:url" content="{{ page.url|remove:'index.html' }}">
+    <meta name="og:url" content="{{site.url}}{{ page.url | remove:'index.html' }}">
     {% endif %}
 
     <meta proprerty="og:description" content="{{ page.content | split:'<!--more-->' | first | strip_html }}">
@@ -30,16 +31,16 @@
 <body>
 
     <header>
-        <a href="{{site.url}}"><img src="{{site.url}}/assets/shivram.svg" alt="Shivram S" id="logo"></a>
-        <button id="switch-theme" onclick="switchTheme()" hidden>Switch Theme</button>
+        <h1 class="big"><a href="{{site.url}}">Shivram S</a></h1>
+        <button id="theme" onclick="switchTheme()" hidden>Switch Theme</button>
     </header>
-
 
     <main>
         {% if page.title or page.metadata %}
-        <div id="metadata">
+        <div>
+
             {% if page.title %}
-            <h1 id="title">
+            <h1 class="big">
                 {{ page.title }}
             </h1>
             {% endif %}
@@ -47,9 +48,11 @@
             {% if page.date %}
             {{page.date | date: "%d %B, %Y"}}
             {% endif %}
+            
             {% if page.updated %}
-            , Updated on {{page.updated | date: "%d %B, %Y"}}
+             Updated {{page.updated | date: "%d %B, %Y"}}
             {% endif %}
+        
         </div>
         <hr>
         {% endif %}
@@ -65,18 +68,21 @@
         <p><a href="{{ site.url }}{{ page.next.url }}">Next: {{ page.next.title }}</a></p>
         {% endif %}
 
-        <ul id="socials">
-            <li><a href="https://github.com/shivrm">GitHub</a></li>
-            <li><a href="https://discord.com/users/778815059865632799">Discord</a></li>
-            <li><a href="{{site.url}}/blog">Blog</a></li>
-        </ul>
-        <p id="copyright">
-            &copy; 2022 Shivram S</p>
+        <nav>
+            <a href="https://github.com/shivrm">GitHub</a>
+             | 
+            <a href="https://discord.com/users/778815059865632799">Discord</a>
+             | 
+            <a href="{{site.url}}/blog">Blog</a>
+        </nav>
+    
+
+        <p id="copy">&copy; 2022 Shivram S</p>
     </footer>
 
 </body>
 <script>
-    document.getElementById('switch-theme').hidden = false;
+    document.getElementById('theme').hidden = false;
     let darkTheme = window.matchMedia('(prefers-color-scheme: dark)').matches;
     document.body.classList.add(darkTheme ? "dark" : "light");
 
@@ -85,10 +91,9 @@
         document.body.classList.toggle("dark");
     }
 
-    document.querySelectorAll("h1,h2,h3,h4,h5,h6").forEach(e => {
-        // Fix for already existing links
+    document.querySelectorAll("h1,h2,h3,h4").forEach(e => {
         if (e.innerHTML.includes('<a')) return;
-        e.classList.add('hlink');
+        e.classList.add('hl');
 
         e.addEventListener('click', () => {
             window.location.href = '#' + e.getAttribute("id");

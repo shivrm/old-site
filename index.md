@@ -3,8 +3,8 @@ layout: default
 title: Hi, I'm Shivram
 ---
 
-Welcome to my website! I'm an amateur programmer who makes tiny projects. I mostly work with JavaScript and Python. Right now, I'm working on a variety of side projects, such as a [math expression parser](https://github.com/shivrm/mathrs), and a compiled programming language.
-<!--more-->
+Welcome to my website! I'm an amateur programmer who makes tiny projects. I mostly work with JavaScript and Python.<!--more--> Right now, I'm working on a variety of side projects, such as a [math expression parser](https://github.com/shivrm/mathrs), and a compiled programming language.
+
 
 I love open-source software, and simple, accessible websites. I also have a [blog]({{site.url}}/blog), where I write about things that interest me.
 

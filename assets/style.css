@@ -22,42 +22,37 @@ header {
     --link: #0af;
 }
 
-#logo {
-    height: 1.8rem;
+.big {
+    color: inherit;
+    margin-bottom: 0;
 }
 
-.dark #logo, .dark #switch-theme {
-    filter: invert(1);
+nav, #copy {
+    text-align: center;
 }
 
 h1,h2,h3 {
     line-height: 1.2
 }
 
-.hlink {
+.hl {
     width: max-content;
     cursor: pointer;
     max-width: 100%;
 }
 
-.hlink:hover:before {
+.hl:hover:before {
     position: relative;
     left: -1.5ch;
     margin-right: -1.5ch;
     content: "§ "
 }
 
-a,
-a:visited,
-a:hover,
-a:active {
+a, a:visited {
     color: var(--link);
     text-decoration: none;
 }
 
-#title {
-    margin-bottom: 0
-}
 
 main img {
     display: block;
@@ -69,33 +64,18 @@ main pre {
     overflow: auto
 }
 
-#switch-theme {    
+#theme {    
     border-radius: 4px;
 
     font-family: serif;
-    margin-left: auto;
+    margin: auto 0 auto auto;
     padding: 0.5em;
 
     font-size: 0.9em;
 }
 
-#socials {
-    display: flex;
-    padding-left: 0;
-    justify-content: center;
-}
-
-#socials li {
-    list-style-type: none;
-    margin: 0 0.75em;
-}
-
-#copyright {
-    text-align: center;
-}
-
-.highlight {
-    overflow: auto;
+.dark #theme {
+    filter: invert(1);
 }
 
 code {
