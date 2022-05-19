@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Write You a Lisp - Part 1
+title: Write You a Lisp, Part 1 - Lexing and Parsing
 date: 2022-05-03
 updated: 2022-05-07
 ---
@@ -8,9 +8,9 @@ I've decided to learn more about how compilers work. I'm starting by trying to c
 my own programming language - a simple Lisp.<!--more--> I'll be implementing it in Rust, but feel
 free to follow along in whatever language you like.
 
-
 I've you haven't already read [Ruslan Spivak's blog post series on building an interpeter](https://ruslanspivak.com/lsbasi-part1/  "Ruslan Spivak - Let's Build a Simple Interpreter, Part 1"), I highly suggest that you do. I'll be using his lexer and parser models in this tutorial.
 
+*The source code for the LISP is available on [GitHub Gist](https://gist.github.com/shivrm/14fb4c734fa2115ae9748e5f1a892300).*
 
 # What is a Lisp, and Why should I write one?
 
@@ -350,7 +350,7 @@ struct Token {
 
 That's it! The parser's done, and now we need to test it. First `derive` the `Debug` trait for your `AstNode`...
 ```
-#derive(Debug)
+#[derive(Debug)]
 pub enum AstNode {
 	...
 }
